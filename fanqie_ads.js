@@ -34,8 +34,12 @@ function isAd(item) {
   if (item.is_ad === true || item.isAd === true) return true;
   if (item.ad_id || item.adId || item.creative_id || item.creativeId) return true;
   if (item.ad_info || item.adInfo) return true;
+  // 穿山甲广告位 ID（rit = ad slot id）
+  if (item.rit || item.slot_id || item.slotId || item.ad_slot_id || item.adSlotId) return true;
   const t = String(item.cell_type || item.cellType || item.item_type || item.card_type || "");
   if (/(^|_)ad(_|$)/i.test(t)) return true;
+  // 底部横幅类广告：banner 型 cell 且带广告位/追踪标记
+  if (/banner/i.test(t) && (item.ad_position || item.adPosition || item.track_url || item.trackUrl || item.click_track_url)) return true;
   return false;
 }
 
