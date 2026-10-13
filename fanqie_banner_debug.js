@@ -1,11 +1,10 @@
 // 番茄小说 banner 调试脚本（临时用，抓到接口后换回正式版）
-// v3 修复（2026-10-13）：用 if/else 保证 $done 只调用一次。
-//   v2 的 bug：$done({}) 后代码继续往下执行，最后一次 $done 覆盖了前面的，导致 fqnovel.com 响应仍被改写。
-// *.fqnovel.com 只记录 banner 日志、绝不改写响应体；去广告仅对 *.fanqienovel.com 生效。
+// v4 修复（2026-10-13）：加回评论 URL 放行（v3 误删导致评论区被当广告清空）。
+//   去广告逻辑与 fanqie_ads.js 完全一致；banner 日志只读不写。
 
 const url = $request.url || "";
 
-// ---- 调试：找 banner / 运营位痕迹（所有域名都记，只读不写） ----
+// ---- 调试：找 banner / 运营位痕迹（只读不写） ----
 try {
   var b0 = $response.body;
   if (b0 && typeof b0 === "string") {
@@ -19,8 +18,11 @@ try {
   }
 } catch (e) {}
 
-// ---- 去广告：只对 fanqienovel.com 生效；其他域名原样放行 ----
-if (/fanqienovel\.com/i.test(url)) {
+// ---- 评论相关接口：直接放行，一个字符都不改（保证评论区正常的关键） ----
+if (/comment|reply|discuss/i.test(url)) {
+  $done({});
+} else {
+// ---- 去广告：只删明确带广告标记的条目 ----
   var body = $response.body;
   if (body && typeof body === "string") {
     try {
@@ -33,8 +35,6 @@ if (/fanqienovel\.com/i.test(url)) {
   } else {
     $done({});
   }
-} else {
-  $done({}); // fqnovel.com 等：只记录日志，不碰响应体
 }
 
 // 判断一个数据项是不是广告：只认明确标记，不猜
@@ -43,8 +43,10 @@ function isAd(item) {
   if (item.is_ad === true || item.isAd === true) return true;
   if (item.ad_id || item.adId || item.creative_id || item.creativeId) return true;
   if (item.ad_info || item.adInfo) return true;
+  if (item.rit || item.slot_id || item.slotId || item.ad_slot_id || item.adSlotId) return true;
   var t = String(item.cell_type || item.cellType || item.item_type || item.card_type || "");
   if (/(^|_)ad(_|$)/i.test(t)) return true;
+  if (/banner/i.test(t) && (item.ad_position || item.adPosition || item.track_url || item.trackUrl || item.click_track_url)) return true;
   return false;
 }
 
