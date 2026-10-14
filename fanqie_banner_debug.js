@@ -1,4 +1,5 @@
 // 番茄小说 banner 调试脚本（临时用，抓到接口后换回正式版）
+// 10-14 18:47 关键词扩充：加 互动剧/短剧/人生模拟器/微剧/剧场（此前关键词覆盖不到“三十岁人生模拟器”）
 // v4 修复（2026-10-13）：加回评论 URL 放行（v3 误删导致评论区被当广告清空）。
 //   去广告逻辑与 fanqie_ads.js 完全一致；banner 日志只读不写。
 
@@ -8,10 +9,10 @@ const url = $request.url || "";
 try {
   var b0 = $response.body;
   if (b0 && typeof b0 === "string") {
-    var m = b0.match(/banner|运营|征文|float|悬浮|bottom_ad|底部横幅|operation/i);
+    var m = b0.match(/banner|运营|征文|float|悬浮|bottom_ad|底部横幅|operation|互动剧|短剧|人生模拟器|微剧|剧场/i);
     if (m) {
       console.log("[FANQIE_BANNER] URL=" + url);
-      var idx = b0.search(/banner|运营|征文|float|悬浮|bottom_ad|底部横幅|operation/i);
+      var idx = b0.search(/banner|运营|征文|float|悬浮|bottom_ad|底部横幅|operation|互动剧|短剧|人生模拟器|微剧|剧场/i);
       var snippet = b0.slice(Math.max(0, idx - 150), idx + 400);
       console.log("[FANQIE_BANNER] HIT=" + m[0] + " SNIPPET=" + snippet.slice(0, 500));
     }
