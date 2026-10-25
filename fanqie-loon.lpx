@@ -1,5 +1,5 @@
 #!name = 番茄小说去广告
-#!desc = 拦截番茄小说开屏、信息流、底部广告与埋点上报；评论区接口不受影响。由 QX 规则 fanqie-qx.conf 移植，共 50 条域名拦截 + JSON 去广告脚本。
+#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条；纯域名拦截，不含脚本。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
@@ -9,77 +9,50 @@
 #!type = normal
 
 [Rule]
-DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,pangle.io,REJECT
-DOMAIN-SUFFIX,ecombdapi.com,REJECT
-DOMAIN-SUFFIX,tanx.com,REJECT
-DOMAIN-SUFFIX,praisewindow-sinfonlinea.ugsdk.cn,REJECT
-DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao2.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao3.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao4.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao5.com,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
-DOMAIN-SUFFIX,oceanengine.com,REJECT
-DOMAIN-SUFFIX,ad.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads3-normal.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
-DOMAIN-SUFFIX,saveu5-normal-lq.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ad-sign.byteimg.com,REJECT
-DOMAIN-SUFFIX,abtest3-misc.zijieapi.com,REJECT
-DOMAIN-SUFFIX,abtest3-misc-lq.zijieapi.com,REJECT
-DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
-DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
-DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
-DOMAIN-SUFFIX,ma.zijieapi.com,REJECT
-DOMAIN-SUFFIX,minigame3-normal.zijieapi.com,REJECT
-DOMAIN-SUFFIX,minigame5-normal.zijieapi.com,REJECT
-DOMAIN-SUFFIX,mssdk.zijieapi.com,REJECT
-DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
-DOMAIN-SUFFIX,vcs.zijieapi.com,REJECT
-DOMAIN-SUFFIX,effect.snssdk.com,REJECT
-DOMAIN-SUFFIX,i.snssdk.com,REJECT
-DOMAIN-SUFFIX,i-hl.snssdk.com,REJECT
-DOMAIN-SUFFIX,is-lq.snssdk.com,REJECT
-DOMAIN-SUFFIX,is-hl.snssdk.com,REJECT
-DOMAIN-SUFFIX,is.snssdk.com,REJECT
-DOMAIN-SUFFIX,security.snssdk.com,REJECT
-DOMAIN-SUFFIX,vas.snssdk.com,REJECT
-DOMAIN-SUFFIX,log3-applog.fqnovel.com,REJECT
-DOMAIN-SUFFIX,log5-applog.fqnovel.com,REJECT
-DOMAIN-SUFFIX,log0-applog-lq.fqnovel.com,REJECT
-DOMAIN-SUFFIX,rtlog3-applog.fqnovel.com,REJECT
-DOMAIN-SUFFIX,rtlog5-applog.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon3-misc.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon11-misc.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon11-misc-lq.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon3-misc-lq.fqnovel.com,REJECT
-DOMAIN-SUFFIX,mon.toutiaocloud.com,REJECT
-DOMAIN-SUFFIX,mon.toutiaocloud.net,REJECT
-DOMAIN-SUFFIX,zlink.ugsdk.cn,REJECT
-DOMAIN-SUFFIX,lf-normal-gr-sourcecdn.bytegecko.com,REJECT
-DOMAIN-SUFFIX,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT
-DOMAIN-SUFFIX,p3-developer.bytemaimg.com,REJECT
-DOMAIN-SUFFIX,webcast-open.douyin.com,REJECT
-DOMAIN-SUFFIX,p11-webcast-sign.douyinpic.com,REJECT
-DOMAIN-SUFFIX,p3-webcast-sign.douyinpic.com,REJECT
-
-[Script]
-response if ${url} ~= /^https?:\/\/[a-z0-9.-]*\.fanqienovel\.com\// then script("https://raw.githubusercontent.com/000Nu11/fanqie-qx-rewrite/main/fanqie_ads.js") with requires_body=true, tag="番茄 JSON 去广告"
-
-[Mitm]
-hostname = *.fanqienovel.com
+# 可莉原版（原封不动，DOMAIN 形式）
+DOMAIN,abtest3-misc.zijieapi.com,REJECT
+DOMAIN,ads3-normal.zijieapi.com,REJECT
+DOMAIN,ads5-normal.zijieapi.com,REJECT
+DOMAIN,feedback-c.zijieapi.com,REJECT
+DOMAIN,gecko3.zijieapi.com,REJECT
+DOMAIN,gecko5.zijieapi.com,REJECT
+DOMAIN,ma.zijieapi.com,REJECT
+DOMAIN,minigame3-normal.zijieapi.com,REJECT
+DOMAIN,minigame5-normal.zijieapi.com,REJECT
+DOMAIN,mssdk.zijieapi.com,REJECT
+DOMAIN,timon.zijieapi.com,REJECT
+DOMAIN,vcs.zijieapi.com,REJECT
+DOMAIN,rtlog3-applog.fqnovel.com,REJECT
+DOMAIN,rtlog5-applog.fqnovel.com,REJECT
+DOMAIN,effect.snssdk.com,REJECT
+DOMAIN,i.snssdk.com,REJECT
+DOMAIN,is-lq.snssdk.com,REJECT
+DOMAIN,is.snssdk.com,REJECT
+DOMAIN,security.snssdk.com,REJECT
+DOMAIN,vas.snssdk.com,REJECT
+DOMAIN,mon.toutiaocloud.com,REJECT
+DOMAIN,zlink.ugsdk.cn,REJECT
+DOMAIN,mon.toutiaocloud.net,REJECT
+DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com,REJECT
+DOMAIN,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT
+DOMAIN,p3-developer.bytemaimg.com,REJECT
+DOMAIN,webcast-open.douyin.com,REJECT
+DOMAIN,p11-webcast-sign.douyinpic.com,REJECT
+DOMAIN,p3-webcast-sign.douyinpic.com,REJECT
+DOMAIN,log3-applog.fqnovel.com,REJECT
+DOMAIN,log5-applog.fqnovel.com,REJECT
+DOMAIN,mon11-misc-lq.fqnovel.com,REJECT
+DOMAIN,mon11-misc.fqnovel.com,REJECT
+DOMAIN,mon3-misc.fqnovel.com,REJECT
+# 我们实测发现补充（2026-10-25 Loon/QX 请求记录，冷启动漏网的 -lq/-hl 变体）
+DOMAIN,mon3-misc-lq.fqnovel.com,REJECT
+DOMAIN,abtest3-misc-lq.zijieapi.com,REJECT
+DOMAIN,is-hl.snssdk.com,REJECT
+DOMAIN,i-hl.snssdk.com,REJECT
+DOMAIN,log0-applog-lq.fqnovel.com,REJECT
+DOMAIN,saveu5-normal-lq.zijieapi.com,REJECT
 
 # 说明：
-# - [Rule] 里的域名拦截不需要 MitM，直接在规则层拒绝连接。
-# - [Script] 只对 *.fanqienovel.com 的响应跑 JSON 去广告；脚本内遇到评论接口直接放行，不确定的不动。
+# - 纯域名拦截，不含脚本、不含 MitM，避免与可莉通用广告平台拦截器冲突。
 # - 图片 CDN（*.fqnovelpic.com、p11.douyinpic.com 等）刻意不拦，拦了会断书封面和头像。
-# - 底部弹窗类内部推广位随内容接口下发，域名拦不住，靠上面这条脚本过滤带广告标记的数据。
+# - QX 侧规则在 fanqie-qx.conf（同一仓库），两边同步维护。
