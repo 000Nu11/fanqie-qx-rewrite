@@ -32,8 +32,10 @@ DOMAIN-SUFFIX,ads5-normal.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,saveu5-normal-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,ad-sign.byteimg.com,REJECT
 DOMAIN-SUFFIX,abtest3-misc.zijieapi.com,REJECT
+DOMAIN-SUFFIX,abtest3-misc-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
 DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
@@ -45,12 +47,15 @@ DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
 DOMAIN-SUFFIX,vcs.zijieapi.com,REJECT
 DOMAIN-SUFFIX,effect.snssdk.com,REJECT
 DOMAIN-SUFFIX,i.snssdk.com,REJECT
+DOMAIN-SUFFIX,i-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,is-lq.snssdk.com,REJECT
+DOMAIN-SUFFIX,is-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,is.snssdk.com,REJECT
 DOMAIN-SUFFIX,security.snssdk.com,REJECT
 DOMAIN-SUFFIX,vas.snssdk.com,REJECT
 DOMAIN-SUFFIX,log3-applog.fqnovel.com,REJECT
 DOMAIN-SUFFIX,log5-applog.fqnovel.com,REJECT
+DOMAIN-SUFFIX,log0-applog-lq.fqnovel.com,REJECT
 DOMAIN-SUFFIX,rtlog3-applog.fqnovel.com,REJECT
 DOMAIN-SUFFIX,rtlog5-applog.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon3-misc.fqnovel.com,REJECT
