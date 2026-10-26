@@ -1,10 +1,10 @@
 #!name = 番茄小说去广告
-#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条；纯域名拦截，不含脚本。
+#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条 + 小七对照补充 15 条；纯域名拦截，不含脚本。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
 #!loon_version = 3.5.1(983)
-#!date = 2026-10-25
+#!date = 2026-10-26
 #!tag = 番茄小说,去广告
 #!type = normal
 
@@ -51,6 +51,23 @@ DOMAIN,is-hl.snssdk.com,REJECT
 DOMAIN,i-hl.snssdk.com,REJECT
 DOMAIN,log0-applog-lq.fqnovel.com,REJECT
 DOMAIN,saveu5-normal-lq.zijieapi.com,REJECT
+
+# 小七 sgmodule 对照补充（2026-10-26）
+DOMAIN,ads4-normal.zijieapi.com,REJECT
+DOMAIN,ads4-normal-hl.zijieapi.com,REJECT
+DOMAIN,ads4-normal-lf.zijieapi.com,REJECT
+DOMAIN,ads4-normal-lq.zijieapi.com,REJECT
+DOMAIN,abtest3-misc-hl.zijieapi.com,REJECT
+DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT
+DOMAIN,gecko5-hj.zijieapi.com,REJECT
+DOMAIN,gecko5-lq.zijieapi.com,REJECT
+DOMAIN,p3-ad-sign.byteimg.com,REJECT
+DOMAIN,p6-ad-sign.byteimg.com,REJECT
+DOMAIN,i-lq.snssdk.com,REJECT
+DOMAIN,pangolin.snssdk.com,REJECT
+DOMAIN,pangolin-hl.snssdk.com,REJECT
+DOMAIN,pangolin-lf.snssdk.com,REJECT
+DOMAIN,pangolin-lq.snssdk.com,REJECT
 
 # 说明：
 # - 纯域名拦截，不含脚本、不含 MitM，避免与可莉通用广告平台拦截器冲突。
