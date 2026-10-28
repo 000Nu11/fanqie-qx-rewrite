@@ -1,11 +1,11 @@
-#!name = 红果去广告（abclq 清单版）
-#!desc = abclq/home-dns-adblock 两份文档清单移植：domain-list 51 条 + 红果案例补漏 29 条 + -hl/-lf 成对补齐 5 条，共 85 条；DOMAIN-SUFFIX 形式，只拦广告/追踪，不碰正片。
+#!name = 番茄去广告
+#!desc = abclq/home-dns-adblock 两份文档清单移植：domain-list 51 条 + 案例补漏 29 条 + -hl/-lf 成对补齐 5 条，共 85 条；DOMAIN-SUFFIX 形式，只拦广告/追踪，不碰正片。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
 #!loon_version = 3.5.1(983)
 #!date = 2026-10-29
-#!tag = 红果,番茄,去广告
+#!tag = 番茄,去广告
 #!type = normal
 
 [Rule]
@@ -86,14 +86,14 @@ DOMAIN-SUFFIX,msync-im1-vip6-std.easemob.com,REJECT
 DOMAIN-SUFFIX,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
 DOMAIN-SUFFIX,api.iegadp.qq.com,REJECT
 
-# 十、红果案例补漏 ① 埋点 -lf（5 条；原规则只写 -hl 全漏，出现频率最高）
+# 十、案例补漏 ① 埋点 -lf（5 条；原规则只写 -hl 全漏，出现频率最高）
 DOMAIN-SUFFIX,log5-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,log3-applog-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
 DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
 
-# 十一、红果案例补漏 ② 字节埋点监控（8 条）
+# 十一、案例补漏 ② 字节埋点监控（8 条）
 DOMAIN-SUFFIX,mon.zijieapi.com,REJECT
 DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
 DOMAIN-SUFFIX,thanos.zijieapi.com,REJECT
@@ -103,7 +103,7 @@ DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,REJECT
 DOMAIN-SUFFIX,lf3-reading.fqnovelstatic.com,REJECT
 DOMAIN-SUFFIX,lf6-webcastcdn-tos-sign.douyinstatic.com,REJECT
 
-# 十二、红果案例补漏 ③ 广告 SDK/投放（10 条；comfylink/ndcpp/xinqiucc 的子域另见后缀段）
+# 十二、案例补漏 ③ 广告 SDK/投放（10 条；comfylink/ndcpp/xinqiucc 的子域另见后缀段）
 DOMAIN-SUFFIX,seeds-open.comfylink.com,REJECT
 DOMAIN-SUFFIX,sdktt.data.comfylink.com,REJECT
 DOMAIN-SUFFIX,ipip-gl1.comfylink.com,REJECT
@@ -115,7 +115,7 @@ DOMAIN-SUFFIX,vc-mirror.ndcpp.com,REJECT
 DOMAIN-SUFFIX,vc-brain.ndcpp.com,REJECT
 DOMAIN-SUFFIX,sd-gl.xinqiucc.com,REJECT
 
-# 十三、红果案例补漏 ④ 随机域名按后缀拦（6 条；子域每次请求都换，只拦具体子域无效）
+# 十三、案例补漏 ④ 随机域名按后缀拦（6 条；子域每次请求都换，只拦具体子域无效）
 DOMAIN-SUFFIX,comfylink.com,REJECT
 DOMAIN-SUFFIX,ndcpp.com,REJECT
 DOMAIN-SUFFIX,ydycdn.com,REJECT
