@@ -1,5 +1,5 @@
 #!name = 番茄小说去广告
-#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条 + 小七对照补充 15 条 + 用户发现 12 条；纯域名拦截，不含脚本。
+#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条 + 小七对照补充 15 条 + 用户发现 13 条；纯域名拦截，不含脚本。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
@@ -96,6 +96,9 @@ DOMAIN,v95-aw-novelapp.fqnovelvod.com,REJECT
 # 用户 Loon 记录补充（2026-10-29，03:14 请求；红果短剧视频广告，视频 4.07MB + 字节追踪）
 DOMAIN,v5-novelapp.fqnovelvod.com,REJECT
 DOMAIN,tr.byteurl.cn,REJECT
+
+# 用户 Loon 记录补充（2026-10-29，04:36 请求；红果短剧广告再现时 DIRECT，5.08KB，疑似广告触发）
+DOMAIN,bsync3-normal-lq.zijieapi.com,REJECT
 
 # 说明：
 # - 纯域名拦截，不含脚本、不含 MitM，避免与可莉通用广告平台拦截器冲突。
