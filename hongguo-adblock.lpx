@@ -1,0 +1,136 @@
+#!name = 红果去广告（abclq 清单版）
+#!desc = abclq/home-dns-adblock 两份文档清单移植：domain-list 51 条 + 红果案例补漏 29 条 + -hl/-lf 成对补齐 5 条，共 85 条；DOMAIN-SUFFIX 形式，只拦广告/追踪，不碰正片。
+#!author = 000Nu11
+#!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
+#!system = iOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-10-29
+#!tag = 红果,番茄,去广告
+#!type = normal
+
+[Rule]
+# 来源：abclq/home-dns-adblock docs/domain-list.md + docs/redguo-case-study.md
+# 与现有 fanqie-loon.lpx 独立、可同时开启；本插件只 REJECT，下面是绝不拦的白名单：
+#   qznovelvod.com / fqnovelvod.com 裸域、正片 *-reading-video、fqnovelpic.com、
+#   douyinpic.com / byteimg.com / snssdk.com 裸域、is.snssdk.com（风控/设备注册）、
+#   api3-normal-sinfonlinea.fqnovel.com（反作弊风控）、p{3,6,9}-novel-sign.byteimg.com（正片签名）、
+#   douyincdn.com / douyinliving.com / bytegecko.com / volcgslb.com 等基础设施。
+#   上游 dist 里的小红书/友盟/小米/DoH 域名与本插件无关，未收录。
+
+# 一、domain-list 3.1 广告计费接口（6 条）
+DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
+
+# 二、domain-list 3.2 广告素材签名（3 条；注意不是正片的 -novel-sign）
+DOMAIN-SUFFIX,p3-ad-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p6-ad-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p9-ad-sign.byteimg.com,REJECT
+
+# 三、domain-list 3.4 点击跳转追踪（1 条）
+DOMAIN-SUFFIX,dig.bdurl.net,REJECT
+
+# 四、domain-list 3.5 穿山甲 SDK（6 条）
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+
+# 五、domain-list 3.6 广告位调度 TNC（5 条）
+DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec2.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-bjlgy.snssdk.com,REJECT
+
+# 六、domain-list 3.7 广告视频（9 条；正片 *-reading-video 绝不拦，一字之差）
+DOMAIN-SUFFIX,v5-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v6-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v9-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v96-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v5-bd-daily-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT
+
+# 七、domain-list 3.9 统计/归因（7 条；注意是 i.snssdk.com，不是风控的 is.snssdk.com）
+DOMAIN-SUFFIX,i.snssdk.com,REJECT
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
+DOMAIN-SUFFIX,i-lq.snssdk.com,REJECT
+DOMAIN-SUFFIX,security-lq.snssdk.com,REJECT
+DOMAIN-SUFFIX,vas-lf-x.snssdk.com,REJECT
+DOMAIN-SUFFIX,activity-ag.awemeughun.com,REJECT
+DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
+
+# 八、domain-list 3.10 实测新发现（10 条）
+DOMAIN-SUFFIX,l2-toutiao-quic-ipv6-ml.gslb.ksyuncdn.com,REJECT
+DOMAIN-SUFFIX,webcast5-open-hl.douyin.com,REJECT
+DOMAIN-SUFFIX,webcast5-open-hl.douyin.com.c.dsa.cdnbuild.net,REJECT
+DOMAIN-SUFFIX,wmzfylgdsz.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-lq.zijieapi.com,REJECT
+
+# 九、domain-list 3.11 其它（4 条）
+DOMAIN-SUFFIX,praisewindow.ugsdk.cn,REJECT
+DOMAIN-SUFFIX,msync-im1-vip6-std.easemob.com,REJECT
+DOMAIN-SUFFIX,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
+DOMAIN-SUFFIX,api.iegadp.qq.com,REJECT
+
+# 十、红果案例补漏 ① 埋点 -lf（5 条；原规则只写 -hl 全漏，出现频率最高）
+DOMAIN-SUFFIX,log5-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,log3-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
+
+# 十一、红果案例补漏 ② 字节埋点监控（8 条）
+DOMAIN-SUFFIX,mon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,thanos.zijieapi.com,REJECT
+DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
+DOMAIN-SUFFIX,abtest3-misc-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,REJECT
+DOMAIN-SUFFIX,lf3-reading.fqnovelstatic.com,REJECT
+DOMAIN-SUFFIX,lf6-webcastcdn-tos-sign.douyinstatic.com,REJECT
+
+# 十二、红果案例补漏 ③ 广告 SDK/投放（10 条；comfylink/ndcpp/xinqiucc 的子域另见后缀段）
+DOMAIN-SUFFIX,seeds-open.comfylink.com,REJECT
+DOMAIN-SUFFIX,sdktt.data.comfylink.com,REJECT
+DOMAIN-SUFFIX,ipip-gl1.comfylink.com,REJECT
+DOMAIN-SUFFIX,cf-gl.comfylink.com,REJECT
+DOMAIN-SUFFIX,p3-mgsdk-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p9-mgsdk-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p1-luckycatopen.byteimg.com,REJECT
+DOMAIN-SUFFIX,vc-mirror.ndcpp.com,REJECT
+DOMAIN-SUFFIX,vc-brain.ndcpp.com,REJECT
+DOMAIN-SUFFIX,sd-gl.xinqiucc.com,REJECT
+
+# 十三、红果案例补漏 ④ 随机域名按后缀拦（6 条；子域每次请求都换，只拦具体子域无效）
+DOMAIN-SUFFIX,comfylink.com,REJECT
+DOMAIN-SUFFIX,ndcpp.com,REJECT
+DOMAIN-SUFFIX,ydycdn.com,REJECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
+DOMAIN-SUFFIX,wuchuyun.com,REJECT
+DOMAIN-SUFFIX,xinqiucc.com,REJECT
+
+# 十四、-hl/-lf 成对补齐（案例教训：-hl/-lf 是不同机房，只写一个就漏；对照上游 dist 核对存在，5 条）
+DOMAIN-SUFFIX,log5-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog3-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog3-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon11-misc-hl.fqnovel.com,REJECT
+
+# 说明：
+# - 本插件只做域名拦截，不含脚本、不含 MitM。
+# - 随机域名后缀段理论上存在误伤可能；若某功能异常，第一件事是把对应后缀改成只拦具体子域。
+# - 与 fanqie-loon.lpx 的关系：独立文件，可同时开启；fanqie-loon.lpx 里的番茄小说实测规则（v5-novelapp、v95-aw、tr.byteurl.cn、bsync3 等）不在本插件里，两边互补。
