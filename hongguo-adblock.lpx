@@ -135,3 +135,6 @@ DOMAIN-SUFFIX,mon11-misc-hl.fqnovel.com,REJECT
 # - 随机域名后缀段理论上存在误伤可能；若某功能异常，第一件事是把对应后缀改成只拦具体子域。
 # - 与 fanqie-loon.lpx 的关系：独立文件，可同时开启；fanqie-loon.lpx 里的番茄小说实测规则（v5-novelapp、v95-aw、tr.byteurl.cn、bsync3 等）不在本插件里，两边互补。
 DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
+DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
+DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
