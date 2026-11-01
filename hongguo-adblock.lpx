@@ -138,3 +138,5 @@ DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
+# 注意：api3/api5-normal-sinfonlinea.fqnovel.com 在 QX 用 script-response-body 做 JSON 过滤（整站拦会致首页转圈）
+# Loon 插件格式不支持 script，如需去开屏请用 QX 版规则；此处不加 REJECT 避免破坏首页
