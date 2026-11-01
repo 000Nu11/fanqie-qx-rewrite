@@ -140,3 +140,11 @@ DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
 # 注意：api3/api5-normal-sinfonlinea.fqnovel.com 在 QX 用 script-response-body 做 JSON 过滤（整站拦会致首页转圈）
 # Loon 插件格式不支持 script，如需去开屏请用 QX 版规则；此处不加 REJECT 避免破坏首页
+
+[Script]
+# api3/api5-normal-sinfonlinea.fqnovel.com：JSON 接口混有开屏广告数据，整站 REJECT 会致首页转圈；用 script 过滤广告字段（与 QX 同策略）
+http-response ^https?:\/\/([a-z0-9-]+\.)?api5-normal-sinfonlinea\.fqnovel\.com\/.* script-path=https://raw.githubusercontent.com/000Nu11/fanqie-qx-rewrite/main/fanqie_ads.js, requires-body=true, timeout=10, tag=番茄开屏过滤-api5
+http-response ^https?:\/\/([a-z0-9-]+\.)?api3-normal-sinfonlinea\.fqnovel\.com\/.* script-path=https://raw.githubusercontent.com/000Nu11/fanqie-qx-rewrite/main/fanqie_ads.js, requires-body=true, timeout=10, tag=番茄开屏过滤-api3
+
+[MITM]
+hostname = api5-normal-sinfonlinea.fqnovel.com, *.api5-normal-sinfonlinea.fqnovel.com, api3-normal-sinfonlinea.fqnovel.com, *.api3-normal-sinfonlinea.fqnovel.com
