@@ -141,8 +141,10 @@ DOMAIN-SUFFIX,gecko3-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
 # 2026-11-05 用户抓包：frontier100-toutiao-lq.fqnovel.com（22:31 出现，下 7.18KB）；10-26 曾因首页通道撤过，本次用户下令重新拦上，若首页变慢先撤这条
 DOMAIN-SUFFIX,frontier100-toutiao-lq.fqnovel.com,REJECT
-# 注意：api3/api5-normal-sinfonlinea.fqnovel.com 在 QX 用 script-response-body 做 JSON 过滤（整站拦会致首页转圈）
-# Loon 插件格式不支持 script，如需去开屏请用 QX 版规则；此处不加 REJECT 避免破坏首页
+# 2026-11-05 用户下令试拦：api5/api3-normal-sinfonlinea（冷启动只有 api5 下 2.04MB 随后弹开屏；QUIC 绕过脚本过滤；api3 是备用通道，一起拦；若首页转圈先撤这两条）
+# 注意：下面 [Script] 两条保留，REJECT 优先命中；撤拦时只删这两条即可恢复脚本过滤
+DOMAIN-SUFFIX,api5-normal-sinfonlinea.fqnovel.com,REJECT
+DOMAIN-SUFFIX,api3-normal-sinfonlinea.fqnovel.com,REJECT
 
 [Script]
 # api3/api5-normal-sinfonlinea.fqnovel.com：JSON 接口混有开屏广告数据，整站 REJECT 会致首页转圈；用 script 过滤广告字段（与 QX 同策略）
