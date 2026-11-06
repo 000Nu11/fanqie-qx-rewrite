@@ -140,10 +140,7 @@ DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko3-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
 # 2026-11-06 撤：frontier100-toutiao-lq.fqnovel.com（评论区加载慢，用户下令放行）
-# 2026-11-05 用户下令试拦：api5/api3-normal-sinfonlinea（冷启动只有 api5 下 2.04MB 随后弹开屏；QUIC 绕过脚本过滤；api3 是备用通道，一起拦；若首页转圈先撤这两条）
-# 注意：下面 [Script] 两条保留，REJECT 优先命中；撤拦时只删这两条即可恢复脚本过滤
-DOMAIN-SUFFIX,api5-normal-sinfonlinea.fqnovel.com,REJECT
-DOMAIN-SUFFIX,api3-normal-sinfonlinea.fqnovel.com,REJECT
+# 2026-11-06 撤：api5/api3-normal-sinfonlinea 试拦（评论区一直转圈，恢复下面 [Script] 过滤）
 
 [Script]
 # api3/api5-normal-sinfonlinea.fqnovel.com：JSON 接口混有开屏广告数据，整站 REJECT 会致首页转圈；用 script 过滤广告字段（与 QX 同策略）
