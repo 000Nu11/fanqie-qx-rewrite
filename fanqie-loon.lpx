@@ -1,10 +1,10 @@
 #!name = 番茄小说去广告
-#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条 + 小七对照补充 15 条 + 用户发现 13 条；纯域名拦截，不含脚本。
+#!desc = 可莉番茄去广告域名拦截原样移植（34 条，DOMAIN 形式，去重）+ 实测补充 6 条 + 小七对照补充 15 条 + 用户发现 11 条；纯域名拦截，不含脚本。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
 #!loon_version = 3.5.1(983)
-#!date = 2026-10-29
+#!date = 2026-11-06
 #!tag = 番茄小说,去广告
 #!type = normal
 
@@ -75,11 +75,9 @@ DOMAIN,webcast3-open-lq.douyin.com,REJECT
 DOMAIN,p26-item.ecombdimg.com,REJECT
 DOMAIN,p3-aio.ecombdimg.com,REJECT
 
-# 用户 Loon 记录补充（2026-10-26，13:40 弹窗出现时同步出现）
-DOMAIN,api5-normal-lq.fqnovel.com,REJECT
+# 2026-11-06 撤：api5-normal-lq（评论区转圈，用户下令撤）
 
-# 用户 Loon 记录补充（2026-10-26，14:23 弹窗出现时三者出现）
-DOMAIN,api3-normal-lq.fqnovel.com,REJECT
+# 2026-11-06 撤：api3-normal-lq（评论区转圈，用户下令撤）
 
 # 用户 QX 记录补充（2026-10-27，13:35:56 请求走 DIRECT、下 5.74KB；13:40 双11弹窗再现）
 DOMAIN,praisewindow-sinfonlinea.ugsdk.cn,REJECT
