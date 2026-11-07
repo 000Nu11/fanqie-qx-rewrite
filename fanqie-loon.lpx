@@ -1,5 +1,5 @@
 #!name = 番茄小说去广告
-#!desc = 可莉原版34条 + 实测补充6条 + 小七对照15条 + 用户发现11条 + DP 4.1对照补充20条（2026-11-07），共86条域名拦截 + Rewrite广告图路径5条；不含脚本。
+#!desc = 合并版：fanqie-loon 86 + hongguo-adblock 91 + DP 4.1，去重后 147 条域名拦截 + Rewrite 广告图路径 5 条 + Script api3/api5 过滤；以后只维护这一份。
 #!author = 000Nu11
 #!homepage = https://github.com/000Nu11/fanqie-qx-rewrite
 #!system = iOS
@@ -13,19 +13,19 @@
 DOMAIN,abtest3-misc.zijieapi.com,REJECT
 DOMAIN,ads3-normal.zijieapi.com,REJECT
 DOMAIN,ads5-normal.zijieapi.com,REJECT
-DOMAIN,feedback-c.zijieapi.com,REJECT
-DOMAIN,gecko3.zijieapi.com,REJECT
-DOMAIN,gecko5.zijieapi.com,REJECT
+DOMAIN-SUFFIX,feedback-c.zijieapi.com,REJECT
+DOMAIN-SUFFIX,gecko3.zijieapi.com,REJECT
+DOMAIN-SUFFIX,gecko5.zijieapi.com,REJECT
 DOMAIN,ma.zijieapi.com,REJECT
 DOMAIN,minigame3-normal.zijieapi.com,REJECT
 DOMAIN,minigame5-normal.zijieapi.com,REJECT
 DOMAIN,mssdk.zijieapi.com,REJECT
-DOMAIN,timon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,timon.zijieapi.com,REJECT
 DOMAIN,vcs.zijieapi.com,REJECT
 DOMAIN,rtlog3-applog.fqnovel.com,REJECT
 DOMAIN,rtlog5-applog.fqnovel.com,REJECT
 DOMAIN,effect.snssdk.com,REJECT
-DOMAIN,i.snssdk.com,REJECT
+DOMAIN-SUFFIX,i.snssdk.com,REJECT
 DOMAIN,is-lq.snssdk.com,REJECT
 DOMAIN,is.snssdk.com,REJECT
 DOMAIN,security.snssdk.com,REJECT
@@ -57,13 +57,11 @@ DOMAIN,ads4-normal.zijieapi.com,REJECT
 DOMAIN,ads4-normal-hl.zijieapi.com,REJECT
 DOMAIN,ads4-normal-lf.zijieapi.com,REJECT
 DOMAIN,ads4-normal-lq.zijieapi.com,REJECT
-DOMAIN,abtest3-misc-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,abtest3-misc-hl.zijieapi.com,REJECT
 DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT
 DOMAIN,gecko5-hj.zijieapi.com,REJECT
 DOMAIN,gecko5-lq.zijieapi.com,REJECT
-DOMAIN,p3-ad-sign.byteimg.com,REJECT
-DOMAIN,p6-ad-sign.byteimg.com,REJECT
-DOMAIN,i-lq.snssdk.com,REJECT
+DOMAIN-SUFFIX,i-lq.snssdk.com,REJECT
 DOMAIN,pangolin.snssdk.com,REJECT
 DOMAIN,pangolin-hl.snssdk.com,REJECT
 DOMAIN,pangolin-lf.snssdk.com,REJECT
@@ -105,32 +103,115 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,gromore.toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 # 二、广告监测与归因（曝光、点击上报）
-DOMAIN,dig.bdurl.net,REJECT
+DOMAIN-SUFFIX,dig.bdurl.net,REJECT
 DOMAIN,dig.zjurl.cn,REJECT
 DOMAIN,mon.snssdk.com,REJECT
-DOMAIN,mon.zijieapi.com,REJECT
+DOMAIN-SUFFIX,mon.zijieapi.com,REJECT
 DOMAIN,toblog.ctobsnssdk.com,REJECT
 DOMAIN,adim.pinduoduo.com,REJECT
 DOMAIN-SUFFIX,byteorge.com,REJECT
 DOMAIN-SUFFIX,bytegoofy.com,REJECT
 # 三、应用初始化 / 配置 / 埋点
-DOMAIN,mcs.snssdk.com,REJECT
-DOMAIN,security-lq.snssdk.com,REJECT
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
+DOMAIN-SUFFIX,security-lq.snssdk.com,REJECT
 DOMAIN,tnc3-alisc1.snssdk.com,REJECT
 DOMAIN,tnc3-aliec2.snssdk.com,REJECT
 # 四、第三方广告与跳转
-DOMAIN,api.iegadp.qq.com,REJECT
-DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
-DOMAIN,activity-ag.awemeughun.com,REJECT
-DOMAIN,msync-im1-vip6-std.easemob.com,REJECT
+DOMAIN-SUFFIX,api.iegadp.qq.com,REJECT
+DOMAIN-SUFFIX,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
+DOMAIN-SUFFIX,activity-ag.awemeughun.com,REJECT
+DOMAIN-SUFFIX,msync-im1-vip6-std.easemob.com,REJECT
 # 未采纳：DP 文件第五节默认注释的两条（DOMAIN-KEYWORD,zijieapi / DOMAIN-SUFFIX,bytedance.com）——zijieapi 整词命中评论区路径红线，不加。
 
+
+# ----- 2026-11-07 合并：hongguo-adblock.lpx 独有规则（63 条，去重后） -----
+# 来源：abclq/home-dns-adblock domain-list + 案例补漏；与本文件原有规则逐条比对，去重 11 条、升级 15 条 DOMAIN→DOMAIN-SUFFIX。
+# p3/p6-ad-sign.byteimg.com 两行已删（被上方 -ad-sign.byteimg.com 关键词覆盖）。
+# 一、domain-list 3.1 广告计费接口（6 条）
+DOMAIN-SUFFIX,ads3-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads3-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,ads5-normal-lq.zijieapi.com,REJECT
+# 四、domain-list 3.5 穿山甲 SDK（6 条）
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+# 五、domain-list 3.6 广告位调度 TNC（5 条）
+DOMAIN-SUFFIX,tnc0-aliec2.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc0-alisc1.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec2.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-bjlgy.snssdk.com,REJECT
+# 六、domain-list 3.7 广告视频（9 条；正片 *-reading-video 绝不拦，一字之差）
+DOMAIN-SUFFIX,v5-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v6-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v9-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v11-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v13-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v26-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v96-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v5-bd-daily-reading-ad.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v5-se-sjy-daily-reading-ad.qznovelvod.com,REJECT
+# 七、domain-list 3.9 统计/归因（7 条；注意是 i.snssdk.com，不是风控的 is.snssdk.com）
+DOMAIN-SUFFIX,vas-lf-x.snssdk.com,REJECT
+DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
+# 八、domain-list 3.10 实测新发现（10 条）
+DOMAIN-SUFFIX,l2-toutiao-quic-ipv6-ml.gslb.ksyuncdn.com,REJECT
+DOMAIN-SUFFIX,webcast5-open-hl.douyin.com,REJECT
+DOMAIN-SUFFIX,webcast5-open-hl.douyin.com.c.dsa.cdnbuild.net,REJECT
+DOMAIN-SUFFIX,wmzfylgdsz.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame3-normal-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-hl.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-lf.zijieapi.com,REJECT
+DOMAIN-SUFFIX,minigame5-normal-lq.zijieapi.com,REJECT
+# 九、domain-list 3.11 其它（4 条）
+DOMAIN-SUFFIX,praisewindow.ugsdk.cn,REJECT
+# 十、案例补漏 ① 埋点 -lf（5 条；原规则只写 -hl 全漏，出现频率最高）
+DOMAIN-SUFFIX,log5-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,log3-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon11-misc-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon3-misc-lf.fqnovel.com,REJECT
+# 十一、案例补漏 ② 字节埋点监控（8 条）
+DOMAIN-SUFFIX,thanos.zijieapi.com,REJECT
+DOMAIN-SUFFIX,lf3-static.bytednsdoc.com,REJECT
+DOMAIN-SUFFIX,lf3-reading.fqnovelstatic.com,REJECT
+DOMAIN-SUFFIX,lf6-webcastcdn-tos-sign.douyinstatic.com,REJECT
+# 十二、案例补漏 ③ 广告 SDK/投放（10 条；comfylink/ndcpp/xinqiucc 的子域另见后缀段）
+DOMAIN-SUFFIX,p3-mgsdk-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p9-mgsdk-sign.byteimg.com,REJECT
+DOMAIN-SUFFIX,p1-luckycatopen.byteimg.com,REJECT
+# 十三、案例补漏 ④ 随机域名按后缀拦（6 条；子域每次请求都换，只拦具体子域无效）
+DOMAIN-SUFFIX,comfylink.com,REJECT
+DOMAIN-SUFFIX,ndcpp.com,REJECT
+DOMAIN-SUFFIX,ydycdn.com,REJECT
+DOMAIN-SUFFIX,qrstuvwxyzab.com,REJECT
+DOMAIN-SUFFIX,wuchuyun.com,REJECT
+DOMAIN-SUFFIX,xinqiucc.com,REJECT
+# 十四、-hl/-lf 成对补齐（案例教训：-hl/-lf 是不同机房，只写一个就漏；对照上游 dist 核对存在，5 条）
+DOMAIN-SUFFIX,log5-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog5-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog3-applog-hl.fqnovel.com,REJECT
+DOMAIN-SUFFIX,rtlog3-applog-lf.fqnovel.com,REJECT
+DOMAIN-SUFFIX,mon11-misc-hl.fqnovel.com,REJECT
+# - 与 fanqie-loon.lpx 的关系：独立文件，可同时开启；fanqie-loon.lpx 里的番茄小说实测规则（v5-novelapp、v95-aw、tr.byteurl.cn、bsync3 等）不在本插件里，两边互补。
+DOMAIN-SUFFIX,t-dsp.pinduoduo.com,REJECT
+DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
+DOMAIN-SUFFIX,gecko3-lq.zijieapi.com,REJECT
+DOMAIN-SUFFIX,frontier100-toutiao-lq.fqnovel.com,REJECT
+
 # 说明：
-# - 纯域名拦截，不含脚本、不含 MitM，避免与可莉通用广告平台拦截器冲突。
+# - 合并版（2026-11-07）：fanqie-loon.lpx + hongguo-adblock.lpx + FanQieDP.plugin 三合一，去重后 147 条；以后只维护这一份。
+# - hongguo-adblock.lpx 已冻结不再更新（仓库里留作备份），Loon 里停用它，只留本插件。
+# - QX 侧规则在 fanqie-qx.conf（同一仓库），与本插件分开维护。
+# - 含 [Script] api3/api5-normal-sinfonlinea 过滤（fanqie_ads.js）与 [Rewrite] 广告图路径（需 MitM 证书才生效）。
 # - 图片 CDN（*.fqnovelpic.com、p11.douyinpic.com 等）刻意不拦，拦了会断书封面和头像。
-# - QX 侧规则在 fanqie-qx.conf（同一仓库），两边同步维护。
-# - 2026-11-07 DP 4.1 对照新增：20 条域名 + 下方 [Rewrite] 广告图路径（需 MitM 证书才生效）。
 # - 观察清单：mcs.snssdk.com、tnc3-alisc1/aliec2.snssdk.com——评论区/登录/金币页异常先撤这三条；图片异常先关 [Rewrite]。
+# - 去重说明（11 条被更宽规则覆盖未收）：api-access.pangolin-sdk-toutiao.com（被 pangolin-sdk-toutiao.com 后缀盖）、p3/p6/p9-ad-sign.byteimg.com（被 -ad-sign.byteimg.com 关键词盖）、seeds-open/sdktt.data/ipip-gl1/cf-gl.comfylink.com（被 comfylink.com 盖）、vc-mirror/vc-brain.ndcpp.com（被 ndcpp.com 盖）、sd-gl.xinqiucc.com（被 xinqiucc.com 盖）。
 
 [Rewrite]
 # 穿山甲素材域名已在 [Rule] 中整域拒绝，这里只处理「和正常图片共用 CDN」的广告路径（DP 4.1 原样）。
@@ -143,5 +224,10 @@ DOMAIN,msync-im1-vip6-std.easemob.com,REJECT
 # 广告渲染器
 ^https?://.+\.pstatp\.com/obj/ad-pattern/renderer reject
 
+[Script]
+# api3/api5-normal-sinfonlinea.fqnovel.com：JSON 接口混有开屏广告数据，整站 REJECT 会致首页转圈；用 script 过滤广告字段（与 QX 同策略，原 hongguo-adblock.lpx）
+http-response ^https?:\/\/([a-z0-9-]+\.)?api5-normal-sinfonlinea\.fqnovel\.com\/.* script-path=https://raw.githubusercontent.com/000Nu11/fanqie-qx-rewrite/main/fanqie_ads.js, requires-body=true, timeout=10, tag=番茄开屏过滤-api5
+http-response ^https?:\/\/([a-z0-9-]+\.)?api3-normal-sinfonlinea\.fqnovel\.com\/.* script-path=https://raw.githubusercontent.com/000Nu11/fanqie-qx-rewrite/main/fanqie_ads.js, requires-body=true, timeout=10, tag=番茄开屏过滤-api3
+
 [Mitm]
-hostname = %APPEND% *.pstatp.com
+hostname = %APPEND% *.pstatp.com, api5-normal-sinfonlinea.fqnovel.com, *.api5-normal-sinfonlinea.fqnovel.com, api3-normal-sinfonlinea.fqnovel.com, *.api3-normal-sinfonlinea.fqnovel.com
