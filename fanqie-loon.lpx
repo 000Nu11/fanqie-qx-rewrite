@@ -204,13 +204,34 @@ DOMAIN-SUFFIX,gecko.zijieapi.com,REJECT
 DOMAIN-SUFFIX,gecko3-lq.zijieapi.com,REJECT
 DOMAIN-SUFFIX,frontier100-toutiao-lq.fqnovel.com,REJECT
 
+# 十五、abclq home-dns-adblock 对照补充（2026-11-08）：75 条精确域名中 62 条已有，13 条缺失全是非番茄（小红书/友盟/QQ beacon/小米/DoH/jomoxc）不收；上游 939 条中筛出 12 条同族埋点/配置域；另补 6 条 QX 已有、Loon 缺失的穿山甲变体/ad.zijieapi.com
+DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao2.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao3.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao4.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao5.com,REJECT
+DOMAIN-SUFFIX,ad.zijieapi.com,REJECT
+DOMAIN-SUFFIX,applog.zijieapi.com,REJECT
+DOMAIN-SUFFIX,log.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc0-bjlgy.zijieapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec1.toutiaoapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec2.toutiaoapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.toutiaoapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-bjlgy.toutiaoapi.com,REJECT
+DOMAIN-SUFFIX,tnc3-aliec2.bytedance.com,REJECT
+DOMAIN-SUFFIX,tnc3-alisc1.bytedance.com,REJECT
+DOMAIN-SUFFIX,tnc3-bjlgy.bytedance.com,REJECT
+DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
+DOMAIN-SUFFIX,monsetting.toutiao.com,REJECT
+
 # 说明：
 # - 合并版（2026-11-07）：fanqie-loon.lpx + hongguo-adblock.lpx + FanQieDP.plugin 三合一，去重后 147 条；以后只维护这一份。
+# - 2026-11-08 abclq 对照补充 +18 条 → 165 条。
 # - hongguo-adblock.lpx 已冻结不再更新（仓库里留作备份），Loon 里停用它，只留本插件。
 # - QX 侧规则在 fanqie-qx.conf（同一仓库），与本插件分开维护。
 # - 含 [Script] api3/api5-normal-sinfonlinea 过滤（fanqie_ads.js）与 [Rewrite] 广告图路径（需 MitM 证书才生效）。
 # - 图片 CDN（*.fqnovelpic.com、p11.douyinpic.com 等）刻意不拦，拦了会断书封面和头像。
-# - 观察清单：mcs.snssdk.com、tnc3-alisc1/aliec2.snssdk.com——评论区/登录/金币页异常先撤这三条；图片异常先关 [Rewrite]。
+# - 观察清单：mcs.snssdk.com、tnc3-alisc1/aliec2.snssdk.com——评论区/登录/金币页异常先撤这三条；新增 tnc3-*.toutiaoapi.com / *.bytedance.com 同族，异常时同批先撤；图片异常先关 [Rewrite]。
 # - 去重说明（11 条被更宽规则覆盖未收）：api-access.pangolin-sdk-toutiao.com（被 pangolin-sdk-toutiao.com 后缀盖）、p3/p6/p9-ad-sign.byteimg.com（被 -ad-sign.byteimg.com 关键词盖）、seeds-open/sdktt.data/ipip-gl1/cf-gl.comfylink.com（被 comfylink.com 盖）、vc-mirror/vc-brain.ndcpp.com（被 ndcpp.com 盖）、sd-gl.xinqiucc.com（被 xinqiucc.com 盖）。
 
 [Rewrite]
