@@ -6,6 +6,7 @@
 #!loon_version = 3.5.1(983)
 #!date = 2026-11-07
 # 更新 2026-11-09：评论区时好时坏（点开偶现网络错误，多点几次能出来），按观察清单先撤 tnc3 批 9 条（tnc3-aliec2/alisc1.snssdk.com、tnc3 toutiaoapi x4、tnc3 bytedance x3）；DOMAIN 165→156 条；若评论区恢复正常，这 9 条不再加回
+# 更新 2026-11-10：用户抓包淘宝广告弹出时同步出现的 10 个阿里/字节域名（lf3-analytics.bytescm.com、o.alicdn.com、ynuf.aliapp.org、umdcv4.taobao.com、gm.mmstat.com、fourier.alibaba/taobao.com、huodong.taobao.com、ud.click.taobao.com、sf3-cdn-tos.douyinstatic.com）；DOMAIN 156→166 条；o.alicdn.com / sf3-cdn-tos.douyinstatic.com 是 CDN，若图片异常先撤这两条
 #!tag = 番茄小说,去广告
 #!type = normal
 
@@ -216,9 +217,22 @@ DOMAIN-SUFFIX,tnc0-bjlgy.zijieapi.com,REJECT
 DOMAIN-SUFFIX,abtest-ch.snssdk.com,REJECT
 DOMAIN-SUFFIX,monsetting.toutiao.com,REJECT
 
+# 2026-11-10 用户抓包淘宝广告（16:59:31-33 请求记录，淘宝广告弹出时同步出现）+10 条
+DOMAIN,lf3-analytics.bytescm.com,REJECT  # 字节分析/埋点
+DOMAIN,o.alicdn.com,REJECT  # 阿里 CDN，广告素材；若番茄图片异常先撤这条
+DOMAIN,ynuf.aliapp.org,REJECT  # 阿里应用基础设施
+DOMAIN,umdcv4.taobao.com,REJECT  # 淘宝数据采集
+DOMAIN,gm.mmstat.com,REJECT  # 阿里统计
+DOMAIN,fourier.alibaba.com,REJECT  # 阿里风控指纹
+DOMAIN,fourier.taobao.com,REJECT  # 阿里风控指纹
+DOMAIN,huodong.taobao.com,REJECT  # 淘宝活动落地页
+DOMAIN,ud.click.taobao.com,REJECT  # 淘宝点击追踪（:80）
+DOMAIN,sf3-cdn-tos.douyinstatic.com,REJECT  # 抖音静态 CDN，广告素材嫌疑；若图片异常先撤这条
+
 # 说明：
 # - 合并版（2026-11-07）：fanqie-loon.lpx + hongguo-adblock.lpx + FanQieDP.plugin 三合一，去重后 147 条；以后只维护这一份。
 # - 2026-11-08 abclq 对照补充 +18 条 → 165 条。
+# - 2026-11-10 用户抓包淘宝广告 +10 条 → 166 条。
 # - hongguo-adblock.lpx 已冻结不再更新（仓库里留作备份），Loon 里停用它，只留本插件。
 # - QX 侧规则在 fanqie-qx.conf（同一仓库），与本插件分开维护。
 # - 含 [Script] api3/api5-normal-sinfonlinea 过滤（fanqie_ads.js）与 [Rewrite] 广告图路径（需 MitM 证书才生效）。
